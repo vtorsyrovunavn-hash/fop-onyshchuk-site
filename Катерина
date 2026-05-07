@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ФОП Онищук</title>
+  <style>
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f5f6f8;
+      color:#222;
+      text-align:center;
+    }
+
+    header{
+      background:#003366;
+      color:white;
+      padding:70px 20px;
+    }
+
+    section{
+      padding:40px 20px;
+    }
+
+    .card{
+      background:white;
+      margin:10px auto;
+      padding:20px;
+      max-width:600px;
+      border-radius:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    footer{
+      background:#003366;
+      color:white;
+      padding:20px;
+      margin-top:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:10px;
+      padding:10px 20px;
+      background:#0055aa;
+      color:white;
+      text-decoration:none;
+      border-radius:6px;
+    }
+
+    .btn:hover{
+      background:#0070dd;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>ФОП Онищук</h1>
+  <p>Сучасні рішення для вашого бізнесу</p>
+</header>
+
+<section>
+  <h2>Послуги</h2>
+
+  <div class="card">
+    <h3>Консультації</h3>
+    <p>Допомога бізнесу та розвиток процесів</p>
+  </div>
+
+  <div class="card">
+    <h3>Документи</h3>
+    <p>Оформлення та супровід</p>
+  </div>
+
+  <div class="card">
+    <h3>IT-послуги</h3>
+    <p>Сайти, автоматизація, підтримка</p>
+  </div>
+</section>
+
+<section>
+  <h2>Контакти</h2>
+  <a class="btn" href="mailto:info@onyschuk.com.ua">Написати email</a>
+</section>
+
+<footer>
+  © 2026 ФОП Онищук
+</footer>
+
+</body>
+</html>
