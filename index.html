@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Вторсировина Вінниця — біг-бег та плівка (вивіз і приймання)</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:rgba(18,27,49,.65);
+      --text:#e7eefc;
+      --muted:#a9b6d6;
+      --accent:#2dd4bf;
+      --accent2:#60a5fa;
+      --border:rgba(255,255,255,.08);
+      --shadow:0 12px 30px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,var(--bg),#060a14);
+      color:var(--text);
+    }
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:min(1100px, 92vw); margin:0 auto; }
+
+    header{
+      position:sticky; top:0; z-index:10;
+      background:rgba(11,18,32,.72);
+      border-bottom:1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:14px 0;
+    }
+    .brand{ display:flex; align-items:center; gap:10px; font-weight:900; }
+    .logo{
+      width:38px; height:38px; border-radius:14px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 10px 20px rgba(45,212,191,.25);
+      flex:0 0 auto;
+    }
+    nav ul{ list-style:none; display:flex; gap:16px; padding:0; margin:0; }
+    nav a{ color:var(--muted); font-weight:700; }
+    nav a:hover{ color:var(--text); }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px; border-radius:14px;
+      font-weight:900;
+      border:1px solid var(--border);
+      background:rgba(18,27,49,.55);
+      white-space:nowrap;
+    }
+    .btn.primary{
+      border:none; color:#071018;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 16px 40px rgba(96,165,250,.18);
+    }
+
+    .hero{ padding:46px 0 18px; }
+    .grid{ display:grid; grid-template-columns: 1.15fr .85fr; gap:22px; align-items:stretch; }
+    h1{ font-size:44px; line-height:1.05; margin:0 0 12px; }
+    .lead{ color:var(--muted); font-size:18px; margin:0 0 18px; }
+
+    .actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
+    .kpi{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    .tag{
+      padding:8px 10px; border-radius:999px;
+      background:rgba(45,212,191,.12);
+      border:1px solid rgba(45,212,191,.22);
+      color:var(--accent); font-weight:900; font-size:13px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+    section{ padding:26px 0; }
+
+    .section-title{
+      display:flex; align-items:baseline; justify-content:space-between; gap:14px;
+      margin-bottom:14px;
+    }
+    .section-title h2{ margin:0; font-size:26px; }
+    .section-title p{ margin:0; color:var(--muted); }
+
+    .services{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
+    .service p{ margin:0; color:var(--muted); line-height:1.5; }
+    .service h3{ margin:12px 0 6px; font-size:18px; }
+
+    .icon{
+      width:46px; height:46px; border-radius:18px;
+      background:rgba(96,165,250,.14);
+      border:1px solid rgba(96,165,250,.25);
+      display:flex; align-items:center; justify-content:center;
+      font-size:20px;
+    }
+
+    .materials{ display:grid; grid-template-columns: repeat(2, 1fr); gap:14px; }
+    .steps{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
+    .step .num{
+      width:44px; height:44px; border-radius:16px; font-size:18px;
+      background:rgba(45,212,191,.14);
+      border:1px solid rgba(45,212,191,.25);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--accent); font-weight:1000;
+      margin-bottom:10px;
+    }
+    .step b{ font-size:18px; display:block; }
+    .step p{ margin:6px 0 0; color:var(--muted); line-height:1.5; }
+
+    .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:start; }
+
+    form{ display:grid; gap:10px; }
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(18,27,49,.65);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{ min-height:110px; resize:vertical; }
+    .small-note{ color:var(--muted); font-size:12px; margin:10px 0 0; }
+    .btn-row{ display:flex; gap:10px; flex-wrap:wrap; }
+
+    footer{
+      padding:26px 0 40px;
+      color:var(--muted);
+      border-top:1px solid var(--border);
+      margin-top:26px;
+    }
+
+    .desktop-only{ display:inline-flex; }
+    .mobile-actions{ display:none; gap:10px; align-items:center; }
+
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+      h1{ font-size:36px; }
+      nav ul{ display:none; }
+      .services{ grid-template-columns: 1fr; }
+      .materials{ grid-template-columns: 1fr; }
+      .steps{ grid-template-columns: 1fr; }
+      .contact-grid{ grid-template-columns: 1fr; }
+      .desktop-only{ display:none; }
+      .mobile-actions{ display:flex; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">♻️</div>
+        <div>
+          <div>Вторсировина</div>
+          <div style="color:var(--muted); font-size:13px; font-weight:800;">Вінниця · біг-бег та плівка</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#services">Послуги</a></li>
+          <li><a href="#materials">Що приймаємо</a></li>
+          <li><a href="#order">Як замовити</a></li>
+          <li><a href="#schedule">Графік роботи</a></li>
+          <li><a href="#contact">Заявка</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn primary desktop-only" href="#contact">🚚 Вивіз</a>
+
+      <div class="mobile-actions">
+        <a class="btn" href="tel:+380987660675">📞 Дзвінок</a>
+        <a class="btn primary" href="https://t.me/0987660675" target="_blank" rel="noopener">💬 Telegram</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="grid">
+      <div>
+        <h1>Приймання та вивіз вторсировини у Вінниці ♻️</h1>
+        <p class="lead">
+          Приймаємо <b>біг-беги</b> та <b>плівку</b>. Працюємо по всій Вінницькій області:
+          забір з підприємств + приймання на точці за узгодженими умовами.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="#contact">💬 Запитати ціну</a>
+          <a class="btn" href="#materials">📦 Що беремо</a>
+        </div>
+
+        <div class="kpi">
+          <span class="tag">✅ Швидка відповідь</span>
+          <span class="tag">🚚 Вивіз</span>
+          <span class="tag">🏭 Приймання</span>
+          <span class="tag">📍 Вінниця + область</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <b style="font-size:18px;">Як це працює (за 30 секунд) ⚡</b>
+        <p style="color:var(--muted); margin:8px 0 14px; line-height:1.5;">
+          Заповніть форму та натисніть кнопку месенджера. Ми отримаємо всі деталі в одному повідомленні.
+        </p>
+
+        <div style="display:grid; gap:10px;">
+          <div style="display:flex; gap:10px; align-items:flex-start;">
+            <div class="icon" style="background:rgba(45,212,191,.14); border-color:rgba(45,212,191,.25); color:var(--accent);">1</div>
+            <div><b>Матеріал</b><div style="color:var(--muted); font-size:13px;">біг-бег або плівка</div></div>
+          </div>
+
+          <div style="display:flex; gap:10px; align-items:flex-start;">
+            <div class="icon" style="background:rgba(96,165,250,.14); border-color:rgba(96,165,250,.25); color:var(--accent2);">2</div>
+            <div><b>Обсяг</b><div style="color:var(--muted); font-size:13px;">к-сть / кг / мішки</div></div>
+          </div>
+
+          <div style="display:flex; gap:10px; align-items:flex-start;">
+            <div class="icon" style="background:rgba(251,191,36,.14); border-color:rgba(251,191,36,.25); color:#fbbf24;">3</div>
+            <div><b>Локація</b><div style="color:var(--muted); font-size:13px;">Вінниця/область + дата (якщо треба)</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-title">
+      <h2>Послуги</h2>
+      <p>Для бізнесу та партнерів</p>
+    </div>
+
+    <div class="services">
+      <div class="card service">
+        <div class="icon">🚚</div>
+        <h3>Вивіз по Вінницькій області</h3>
+        <p>Забираємо біг-беги та плівку з підприємств/складів. Узгодимо логістику.</p>
+      </div>
+
+      <div class="card service">
+        <div class="icon">🏭</div>
+        <h3>Приймання на точці</h3>
+        <p>Зважування/оцінка та приймання матеріалів за узгодженими правилами.</p>
+      </div>
+
+      <div class="card service">
+        <div class="icon">🧾</div>
+        <h3>Узгодження умов</h3>
+        <p>Ціна та порядок співпраці залежать від типу, стану та обсягу.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="materials">
+    <div class="section-title">
+      <h2>Що приймаємо</h2>
+      <p>Основні категорії</p>
+    </div>
+
+    <div class="materials">
+      <div class="card">
+        <div class="icon">🧱</div>
+        <h3 style="margin:10px 0 6px; font-size:18px;">Біг-беги</h3>
+        <p class="small-note" style="margin-top:0;">
+          У т.ч. мішки після використання (стан/забруднення — уточнюємо).
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🫧</div>
+        <h3 style="margin:10px 0 6px; font-size:18px;">Плівка</h3>
+        <p class="small-note" style="margin-top:0;">
+          Пакувальна / термоусадка — уточнюємо тип та стан.
+        </p>
+      </div>
+    </div>
+
+    <p class="small-note" style="margin-top:12px;">
+      Якщо сумніваєтесь — напишіть у заявці: ми підкажемо ✅
+    </p>
+  </section>
+
+  <section id="order">
+    <div class="section-title">
+      <h2>Як замовити</h2>
+      <p>3 прості кроки</p>
+    </div>
+
+    <div class="steps">
+      <div class="card step">
+        <div class="num">1</div>
+        <b>Заявка</b>
+        <p>Матеріал + обсяг + ім’я (телефон як ви просили), адреса/локація (для вивозу).</p>
+      </div>
+
+      <div class="card step">
+        <div class="num">2</div>
+        <b>Уточнення</b>
+        <p>Ми уточнюємо стан та умови приймання/забору.</p>
+      </div>
+
+      <div class="card step">
+        <div class="num">3</div>
+        <b>Вивіз / приймання</b>
+        <p>Погоджуємо дату та організовуємо процес.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="schedule">
+    <div class="section-title">
+      <h2>Графік роботи</h2>
+      <p>Вінниця · Пн–Пт</p>
+    </div>
+
+    <div class="card">
+      <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:flex-start;">
+        <div class="icon" style="background:rgba(45,212,191,.14); border-color:rgba(45,212,191,.25); color:var(--accent);">⏰</div>
+        <div>
+          <b style="font-size:18px;">Понеділок–П’ятниця</b>
+          <p style="margin:6px 0 0; color:var(--muted); line-height:1.6;">
+            Графік: <b style="color:var(--text);">08:30 – 17:00</b><br/>
+            В інші години також можете залишити заявку — ми відповімо в робочий час.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">
+      <h2>Заявка (Telegram / WhatsApp / Viber)</h2>
+      <p>Відправляйте — ми швидко відповімо</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="card">
+        <b style="font-size:18px;">Контакти 📞</b>
+        <p style="color:var(--muted); line-height:1.8; margin:10px 0 0;">
+          <b style="color:var(--text);">Телефон:</b> 0987660675<br/>
+          <b style="color:var(--text);">Адреса приймання:</b> Вінниця, вул. Кальницька, 2а<br/>
+          <b style="color:var(--text);">Зона:</b> Вінниця та вся Вінницька область
+        </p>
+
+        <p class="small-note" style="margin-top:14px;">
+          <b style="color:var(--text);">Графік:</b> Пн–Пт · 08:30–17:00
+        </p>
+      </div>
+
+      <div class="card">
+        <form id="leadForm">
+          <select id="material" required>
+            <option value="" disabled selected>Що саме у вас?</option>
+            <option value="Біг-беги">Біг-беги</option>
+            <option value="Плівка">Плівка</option>
+          </select>
+
+          <input id="name" required placeholder="Ваше ім’я ⭐" />
+
+          <!-- як просили -->
+          <input id="phone" type="tel" value="0987660675" />
+
+          <input id="volume" placeholder="Обсяг (к-сть / кг / мішки)" />
+          <input id="location" placeholder="Адреса/місто (для вивозу або куди зручно)" />
+
+          <textarea id="details" placeholder="Деталі: стан, забруднення, коли зручно для вивозу"></textarea>
+
+          <div class="btn-row">
+            <button type="button" class="btn primary" onclick="send('telegram')">📨 Telegram</button>
+            <button type="button" class="btn" onclick="send('whatsapp')">💬 WhatsApp</button>
+            <button type="button" class="btn" onclick="send('viber')">📲 Viber</button>
+          </div>
+
+          <div class="small-note">
+            “Деталі” можна заповнити шаблоном — або вписати як зручно ✅
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+      <div>♻️ Вторсировина · Вінниця (біг-бег, плівка)</div>
+      <div>© <span id="y"></span> Усі права захищені</div>
+    </div>
+  </footer>
+</main>
+
+<script>
+  const phoneE164 = "+380987660675";
+  const telegramChat = "0987660675";
+
+  document.getElementById('y').textContent = new Date().getFullYear();
+  const el = (id) => document.getElementById(id);
+
+  function buildMessage(){
+    const material = (el('material').value || '').trim();
+    const name = (el('name').value || '').trim();
+    const phone = (el('phone').value || '').trim();
+    const volume = (el('volume').value || '').trim();
+    const location = (el('location').value || '').trim();
+    const details = (el('details').value || '').trim();
+
+    return [
+      "Заявка з сайту «Вторсировина»",
+      `Матеріал: ${material || "-"}`,
+      `Ім’я: ${name || "-"}`,
+      `Телефон клієнта: ${phone || "-"}`,
+      `Обсяг: ${volume || "-"}`,
+      `Локація: ${location || "Вінниця / область (уточнити)"}`,
+      `Деталі: ${details || "-"}`,
+      "",
+      "Потрібен зворотній зв’язок."
+    ].join("\n");
+  }
+
+  // тільки Material + Ім’я ✅
+  function validateForm(){
+    const material = (el('material').value || '').trim();
+    const name = (el('name').value || '').trim();
+
+    if (!material){
+      el('material').focus();
+      alert("Оберіть матеріал ✅");
+      return false;
+    }
+    if (!name){
+      el('name').focus();
+      alert("Вкажіть ваше ім’я ✅");
+      return false;
+    }
+    return true;
+  }
+
+  // автопідказка в Деталі (тільки якщо поле порожнє)
+  function setDetailsTemplate(){
+    const material = (el('material').value || '').trim();
+    const detailsEl = el('details');
+    if (!material) return;
+
+    const template =
+      material === "Біг-беги"
+        ? "Стан: \nКількість: \nЧисті/забруднені: \nКоли зручно для вивозу: "
+        : "Тип плівки: \nСтан: \nКількість/вага: \nКоли зручно для вивозу: ";
+
+    if (!detailsEl.value.trim()){
+      detailsEl.value = template;
+    }
+  }
+
+  el('material').addEventListener('change', setDetailsTemplate);
+
+  function send(type){
+    if (!validateForm()) return;
+
+    const text = encodeURIComponent(buildMessage());
+
+    if (type === 'telegram'){
+      window.open(`https://t.me/${telegramChat}?text=${text}`, '_blank', 'noopener');
+      return;
+    }
+
+    if (type === 'whatsapp'){
+      const phone = phoneE164.replace('+','');
+      window.open(`https://wa.me/${phone}?text=${text}`, '_blank', 'noopener');
+      return;
+    }
+
+    if (type === 'viber'){
+      window.open(`viber://chat?number=${phoneE164}&text=${text}`, '_blank', 'noopener');
+      return;
+    }
+  }
+</script>
+</body>
+</html>
